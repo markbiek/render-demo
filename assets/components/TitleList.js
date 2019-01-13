@@ -5,13 +5,13 @@ class TitleList extends React.Component {
     render() {
         const { features, status } = this.props;
 
-        if (status != 'complete') {
+        if (!features.length) {
             return null;
         }
 
         return (
             <>
-                <ul className="col">
+                <ul className="col list">
                     {
                         features.map((feature, idx) => {
                             const { properties: { title } } = feature;

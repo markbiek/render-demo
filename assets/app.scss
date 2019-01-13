@@ -23,9 +23,32 @@ section {
         width: 50%;
         border: 1px solid #ababab;
         margin-right: 10px;
+        padding: 10px;
 
         &:last-child {
             margin-right: 0;
+        }
+    }
+}
+
+ul.list {
+    list-style-type: none;   
+
+    li {
+        display: block;
+        width: 95%;
+        border-bottom: 1px solid #eeaabb;
+        margin-bottom: 8px;
+        padding: 4px;
+
+        &:hover {
+            background: #333;
+            color: #eeaabb;
+        }
+
+        &:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
         }
     }
 }
