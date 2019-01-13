@@ -9,6 +9,8 @@ import {
     setStatus,
 } from '../modules/Test/actions';
 
+import Header from './Header';
+
 const EARTHQUAKE_URL = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson';
 
 const { dispatch } = store;
@@ -35,6 +37,7 @@ export default class App extends React.Component {
             <Provider store={store}>
                 <>
                     <h1>Render Test</h1>
+                    <Header />
                 </>
             </Provider>
         );
