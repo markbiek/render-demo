@@ -10,11 +10,15 @@ import {
 } from '../modules/Test/actions';
 
 import Header from './Header';
+import Current from './Current';
 import MagList from './MagList';
 import TitleList from './TitleList';
 
-//const EARTHQUAKE_URL = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson';
-const EARTHQUAKE_URL = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson';
+//Lots of data
+const EARTHQUAKE_URL = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson';
+
+//Minimal dataset
+//const EARTHQUAKE_URL = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson';
 
 const { dispatch } = store;
 
@@ -44,6 +48,9 @@ export default class App extends React.Component {
                 <>
                     <h1>Render Test</h1>
                     <Header fetch={this.fetchData} />
+                    <div className="container">
+                        <Current />
+                    </div>
                     <div className="container">
                         <MagList />
                         <TitleList />

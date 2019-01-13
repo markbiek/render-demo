@@ -4,7 +4,7 @@ import store from '../store';
 import {
     setMagHover,
     setMagHoverStop
-} from '../modules/Test/actions';
+} from '../modules/Meta/actions';
 
 const { dispatch } = store;
 

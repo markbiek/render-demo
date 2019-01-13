@@ -1,9 +1,11 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
 import { testReducer } from './modules/Test/reducer';
+import { metaReducer } from './modules/Meta/reducer';
 
 const reducers = combineReducers({
     testState: testReducer,
+    metaState: metaReducer,
 });
 
 const store = createStore(
