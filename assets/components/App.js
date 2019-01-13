@@ -10,6 +10,8 @@ import {
 } from '../modules/Test/actions';
 
 import Header from './Header';
+import MagList from './MagList';
+import TitleList from './TitleList';
 
 const EARTHQUAKE_URL = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson';
 
@@ -38,6 +40,10 @@ export default class App extends React.Component {
                 <>
                     <h1>Render Test</h1>
                     <Header />
+                    <div className="container">
+                        <MagList />
+                        <TitleList />
+                    </div>
                 </>
             </Provider>
         );

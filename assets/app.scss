@@ -12,3 +12,20 @@ section {
     width: 80%;
     margin: 0 auto;
 }
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+
+    .col {
+        width: 50%;
+        border: 1px solid #ababab;
+        margin-right: 10px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
