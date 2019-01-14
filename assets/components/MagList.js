@@ -11,6 +11,9 @@ class MagList extends React.Component {
             return null;
         }
 
+        console.log('');
+        console.log('MagList:');
+
         return (
             <>
                 <ul className="col list">

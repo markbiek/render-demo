@@ -30,10 +30,12 @@ export default class MagListItem extends React.Component {
         const { 
                 feature: { 
                     properties: { 
-                        mag, type
+                        mag, type, code
                     }
                 }
               } = this.props;
+
+        console.log(`MagListItem: ${code}`);
 
         return (
             <li onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
