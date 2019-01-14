@@ -3,10 +3,10 @@ import axios from 'axios';
 export const MAG_HOVER = 'MAG_HOVER';
 export const MAG_HOVER_STOP = 'MAG_HOVER_STOP';
 
-export const setMagHover = (feature) => {
+export const setMagHover = (code) => {
     return {
         type: MAG_HOVER,
-        feature,
+        code,
     }
 };
 

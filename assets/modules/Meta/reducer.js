@@ -13,7 +13,7 @@ const metaInitialState = fromJS({
 export const metaReducer = function (state = metaInitialState, action) {
     switch (action.type) {
         case MAG_HOVER:
-            return state.set('hover', fromJS(action.feature));
+            return state.set('hover', fromJS(action.code));
 
         case MAG_HOVER_STOP:
             return state.set('hover', null);

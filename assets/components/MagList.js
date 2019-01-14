@@ -1,42 +1,30 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import MagListItem from './MagListItem';
 
-class MagList extends React.Component {
-    render() {
-        const { features, status } = this.props;
+const MagList = ({features}) => {
+    console.log('MagList');
 
-        if (!features.length) {
-            return null;
-        }
+    return (
+        <>
+            <ul className="col list">
+                {
+                    features.map((feature, idx) => {
+                        const { properties: { mag, type, code } } = feature.toJS();
 
-        console.log('');
-        console.log('MagList:');
-
-        return (
-            <>
-                <ul className="col list">
-                    {
-                        features.map((feature, idx) => {
-                            const { properties: { mag, type} } = feature;
-
-                            return (
-                                <MagListItem key={`mag_${idx}`} feature={feature} />
-                            );
-                        })
-                    }
-                </ul>
-            </>
-        );
-    }
+                        return (
+                            <MagListItem key={`mag_${idx}`} code={code} mag={mag} type={type} feature={feature} />
+                        );
+                    })
+                }
+            </ul>
+        </>
+    );
 }
 
-const mapStateToProps = function (store) {
-    return {
-        features: store.testState.get('features').toJS(),
-        status: store.testState.get('status'),
-    }
+MagList.propTypes = {
+    features: PropTypes.array.isRequired,
 };
 
-export default connect(mapStateToProps)(MagList);
+export default MagList;

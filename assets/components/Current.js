@@ -3,37 +3,21 @@ import { connect } from 'react-redux';
 
 class Current extends React.Component {
     render() {
-        const { hover: feature} = this.props;
+        const { hover } = this.props;
 
-        if (!feature) {
+        if (!hover) {
             return null;
         }
 
-        const {
-            properties: {
-                mag,
-                place,
-                url,
-                type
-            }
-        } = feature;
-
         return (
-            <>
-                <h4>Current Item</h4>
-                <p>Magnitude: {mag}</p>
-                <p>Type: {type}</p>
-                <p>Place: <a href={url}>{place}</a></p>
-            </>
+            <p>{hover}</p>
         );
     }
 }
 
 const mapStateToProps = function (store) {
-    const hover = store.metaState.get('hover');
-
     return {
-        hover: hover ? hover.toJS() : null,
+        hover: store.metaState.get('hover'),
     }
 };
 

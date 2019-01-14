@@ -7,12 +7,13 @@ import store from '../store';
 import {
     setFeatures,
     setStatus,
+    setRender,
 } from '../modules/Test/actions';
 
 import Header from './Header';
 import Current from './Current';
-import MagList from './MagList';
-import TitleList from './TitleList';
+import MagListContainer from './MagListContainer';
+import TitleListContainer from './TitleListContainer';
 
 //Lots of data
 //const EARTHQUAKE_URL = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson';
@@ -35,6 +36,7 @@ export default class App extends React.Component {
                 const { data: { features } } = resp;
 
                 dispatch(setFeatures(features));
+                dispatch(setRender('mag_list', true));
                 dispatch(setStatus('complete'));   
             })
             .catch(e => {
@@ -52,8 +54,8 @@ export default class App extends React.Component {
                         <Current />
                     </div>
                     <div className="container">
-                        <MagList />
-                        <TitleList />
+                        <MagListContainer />
+                        <TitleListContainer />
                     </div>
                 </>
             </Provider>

@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import store from '../store';
+
 import {
     setMagHover,
     setMagHoverStop
@@ -8,39 +10,25 @@ import {
 
 const { dispatch } = store;
 
-export default class MagListItem extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.mouseEnter = this.mouseEnter.bind(this);
-        this.mouseLeave = this.mouseLeave.bind(this);
+const MagListItem = ({mag, type, code}) => {
+    const mouseEnter = () => {
+        dispatch(setMagHover(code));
     }
 
-    mouseEnter() {
-        const { feature } = this.props;
-
-        dispatch(setMagHover(feature));
-    }
-
-    mouseLeave() {
+    const mouseLeave = () => {
         dispatch(setMagHoverStop());
     }
 
-    render() {
-        const { 
-                feature: { 
-                    properties: { 
-                        mag, type, code
-                    }
-                }
-              } = this.props;
+    return (
+        <li onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+            { mag } &mdash; { type }
+        </li>
+    );
+};
 
-        console.log(`MagListItem: ${code}`);
+MagListItem.propTypes = {
+    mag: PropTypes.number.isRequired,
+    type: PropTypes.string.isRequired,
+};
 
-        return (
-            <li onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
-                { mag } &mdash; { type }
-            </li>
-        );
-    }
-}
+export default MagListItem;
